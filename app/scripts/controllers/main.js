@@ -14,19 +14,18 @@ angular.module('pegaWizardApp', ['mgo-angular-wizard']).controller('WizardCtrl',
   };
 
   $scope.getOptions = function() {
-    $http.get('http://www.iNorthwind.com/Service1.svc/getAllCustomers')
-      .success(function(data) {
-        $scope.loans = data;
-        //$scope.selectedLoan = $scope.loans[0].CustomerID;
-      });
-    //$http.post('http://cap-pega-as02.cloudapp.net/prweb/PRHTTPService/LoansOrigination/CreateLoanApplicationandGetOptions/ExecuteServiceRequest', $scope.user).
-    //success(function(data, status, headers, config) {
-    //  alert(data + status + headers + config);
-    //}).
-    //error(function(data, status, headers, config) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-    //});
+//    $http.get('http://www.iNorthwind.com/Service1.svc/getAllCustomers')
+//      .success(function(data) {
+//        $scope.loans = data;
+//        //$scope.selectedLoan = $scope.loans[0].CustomerID;
+//      });
+    $http.post('/prweb/PRRestService/LoansOrigination/LoansOrigination/CreateLoanApplicationAndGetOptions', { customer : $scope.user }).
+    success(function(data, status, headers, config) {
+      console.log(data, status, headers, config);
+    }).
+    error(function(data, status, headers, config) {
+            console.log('an error has occured while requesting options', data, status, headers, config);
+    });
   };
 
   $scope.master = {};

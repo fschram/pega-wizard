@@ -7,6 +7,8 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
 module.exports = function(grunt) {
 
   // Load grunt tasks automatically
@@ -63,6 +65,14 @@ module.exports = function(grunt) {
 
     // The actual grunt server settings
     connect: {
+      proxies: [
+        {
+           context: '/prweb', // the nodejs server will proxy only requests starting with this path
+           host: 'cap-pega-as02.cloudapp.net',
+           port: 80,
+           xforward: true
+        }
+      ],
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
@@ -75,7 +85,16 @@ module.exports = function(grunt) {
           base: [
             '.tmp',
             '<%= yeoman.app %>'
-          ]
+          ],
+          middleware: function (connect, options) {
+            var middlewares = [];
+              options.base.forEach(function (base) {
+                // Serve static files.
+                middlewares.push(connect.static(base));
+              });
+              middlewares.push(proxySnippet);
+              return middlewares;
+            }
         }
       },
       test: {
@@ -342,6 +361,8 @@ module.exports = function(grunt) {
   });
 
 
+  grunt.loadNpmTasks('grunt-connect-proxy');
+
   grunt.registerTask('serve', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -349,6 +370,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
+      'configureProxies:server',
       'bowerInstall',
       'concurrent:server',
       'autoprefixer',
