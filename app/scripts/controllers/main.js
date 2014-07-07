@@ -19,14 +19,18 @@ angular.module('pegaWizardApp', ['mgo-angular-wizard']).controller('WizardCtrl',
 //        $scope.loans = data;
 //        //$scope.selectedLoan = $scope.loans[0].CustomerID;
 //      });
+    $scope.loading = true;
+
     $http.post('/prweb/PRRestService/LoansOrigination/LoansOrigination/CreateLoanApplicationAndGetOptions', { customer : $scope.user }).
     success(function(data, status, headers, config) {
       console.log(data, status, headers, config);
 
+      $scope.loading = false;
       WizardHandler.wizard().next();
     }).
     error(function(data, status, headers, config) {
             console.log('an error has occured while requesting options', data, status, headers, config);
+            $scope.loading = false;
     });
   };
 

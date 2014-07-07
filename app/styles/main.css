@@ -19,26 +19,56 @@ body {
     position: relative;
     margin-bottom: 50px;
 }
+.loading-spinner {
+    background-image: url(../images/ajax-loader.gif);
+    height: 16px;
+    width: 16px;
+    vertical-align: text-top;
+    display: inline-block;
+}
 
 /* Reset/remove the angular-wizard step circles */
 .steps-indicator:before {
     content: none;
 }.steps-indicator li a:before {
     content: none;
+}/* END Reset/remove the angular-wizard step circles */
+
+.steps-indicator li:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.steps-indicator li:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .steps-indicator li {
-    border: 1px solid orange;
+    border: 1px solid #FF6702;
     height: 50px;
     margin-right: -1px;
     transition: background-color 1000ms linear, color 1000ms linear;
 }
 .steps-indicator li.done {
-    background-color: orange;
+    background: white;
 }
-.steps-indicator li.editing {
-    background-color: orangered;
+.steps-indicator li.editing, .steps-indicator li.current {
+    background: linear-gradient(#FF7302, #DE5B01);
 }
 
-.steps-indicator li.done a, .steps-indicator li.editing a {
+.steps-indicator li a {
+    font-weight: normal;
+}
+
+.steps-indicator li.current a, .steps-indicator li.editing a {
     color: white;
+    font-weight: bold;
+}
+.steps-indicator li.done a {
+    color: orangered;
+}.steps-indicator li.done a:hover {
+     text-decoration: underline;
+ }
+.steps-indicator li.done a, .steps-indicator li.editing a {
+    /*color: white;*/
+
 }
