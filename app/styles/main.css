@@ -13,6 +13,32 @@ body {
 	background-color: #f60 !important;
 	color: #fff !important;
 }
+
+/* Custom angular-wizard styles */
 .steps-indicator {
-  position: relative;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* Reset/remove the angular-wizard step circles */
+.steps-indicator:before {
+    content: none;
+}.steps-indicator li a:before {
+    content: none;
+}
+.steps-indicator li {
+    border: 1px solid orange;
+    height: 50px;
+    margin-right: -1px;
+    transition: background-color 1000ms linear, color 1000ms linear;
+}
+.steps-indicator li.done {
+    background-color: orange;
+}
+.steps-indicator li.editing {
+    background-color: orangered;
+}
+
+.steps-indicator li.done a, .steps-indicator li.editing a {
+    color: white;
 }

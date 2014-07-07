@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,152 +20,176 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+</head>
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Loans Origination</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Loans Origination</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a>Goal of this demo is showcasing how easy PEGA services can be distributed via API / ReST to a webportal using AngularJS</a></li>
-                <li class="divider"></li>
-                <li><a target="_blank" href="http://www.nl.capgemini.com">Built by Capgemini &copy; 2014</a></li>
-              </ul>
-            </li>
-          </ul>
-          </div><!--/.nav-collapse -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a>Goal of this demo is showcasing how easy PEGA services can be distributed via API / ReST
+                            to a webportal using AngularJS</a></li>
+                        <li class="divider"></li>
+                        <li><a target="_blank" href="http://www.nl.capgemini.com">Built by Capgemini &copy; 2014</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="container">
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-          <h1>Loans Origination</h1>
-        </div>
-        <!-- MAIN CONTENT -->
-        <div>
-          <section id="main_content" class="inner main-inner" ng-app="pegaWizardApp" ng-controller="WizardCtrl">
-            <wizard on-finish="finished()">
-            <wz-step title="1. Persoonlijke gegevens">
-            <h1>Persoonlijke gegevens</h1>
-            <form role="form">
-              <div class="col-sm-6 form-group">
-                <label for="name">Naam</label>
-                <input type="text" ng-model="user.name" class="form-control" id="name" value="A. van Dijk">
-              </div>
-              <div class="col-sm-6 form-group">
-                <label for="address">Adres</label>
-                <input type="text" ng-model="user.address" class="form-control" id="address" value="Tolsteegsingel 44, 3512AK, Utrecht">
-              </div>
-              <div class="col-sm-6 form-group">
-                <label for="dateofbirth">Geboortedatum</label>
-                <input type="date" ng-model="user.dateofbirth" class="form-control" id="dateofbirth">
-              </div>
-              <div class="col-sm-12 form-group">
-                <button wz-next type="submit" class="btn btn-default btn-ing">Volgende</button>
-              </div>
-            </form>
-            </wz-step>
-            <wz-step title="2. Uw situatie">
-            <h1>Uw situatie</h1>
-            <form role="form">
-              <div class="col-sm-6 form-group">
-                <label for="maritalstatus">Huwelijkse staat</label>
-                <select class="form-control" ng-model="user.maritalstatus" id="maritalstatus">
-                  <option value="alleenstaand">Alleenstaand</option>
-                  <option value="gescheiden">Gescheiden</option>
-                  <option value="scheiding">In scheiding</option>
-                  <option value="gemeenschapgoederen">Getrouwd / Partnerregistratie in gemeenschap van goederen</option>
-                  <option value="huwelijksevoorwaarden">Getrouwd / Partnerregistratie onder (huwelijkse) voorwaarden</option>
-                  <option value="metsamenlevingscontract">Samenwonend met samenlevingscontract</option>
-                  <option value="zondersamenlevingscontract">Samenwonend zonder samenlevingscontract</option>
-                  <option value="weduwe">Weduwe / weduwnaar</option>
-                </select>
-              </div>
-              <div class="col-sm-6 form-group">
-                <label for="housingstatus">Woonsituatie</label>
-                <select class="form-control" ng-model="user.housingstatus" id="housingstatus">
-                  <option value="bought">Ik ben huiseigenaar</option>
-                  <option value="rented">Ik huur een woning</option>
-                  <option value="libingin">Ik ben inwonend / thuiswonend</option>
-                </select>
-              </div>
-              <div class="col-sm-6 form-group">
-                <label for="numberofchildren">Voor hoeveel kinderen bent u financieel verantwoordelijk?</label>
-                <input type="number"ng-model="user.numberofchildren" class="form-control" id="numberofchildren" placeholder="0">
-              </div>
-              <div class="col-sm-6 form-group">
-                <label for="monthlyincome">Netto maandinkomen (&euro;)</label>
-                <input type="number" ng-model="user.monthlyincome" class="form-control" id="monthlyincome" placeholder="1700">
-              </div>
-              <div class="col-sm-6 form-group">
-                <label for="requestedloanamount">Hoeveel wilt u lenen? (&euro;)</label>
-                <input type="number" class="form-control" id="requestedloanamount" placeholder="1000">
-              </div>
-              <div class="col-sm-12 form-group">
-                <button wz-previous type="submit" class="btn btn-default btn-ing">Terug</button>
-                <button wz-next type="submit" ng-click="getOptions()" class="btn btn-default btn-ing">Volgende</button>
-              </div>
-            </form>
-            </wz-step>
-            <wz-step title="2. Uw lening">
-            <h1>Uw lening</h1>
-            <p>Wij kunnen u de volgende lening(en) aanbieden:</p>
-            <div class="form-group">
-            <select size="3" class="form-control" ng-model="user.selectedloan" ng-options="customer.CustomerID as customer.CompanyName for customer in loans"></select>
-          </div>
-          <div class="col-sm-12 form-group">
-            <button wz-previous type="submit" class="btn btn-default btn-ing">Terug</button>
-            <button wz-next type="submit" class="btn btn-default btn-ing">Bevestigen</button>
-          </div>
-          </wz-step>
-          <wz-step title="3. Voltooid">
-          <h1>Voltooid</h1>
-          <p>Uw aanvraag voor een {{user.selectedloan}} lening is in behandeling. U hoort spoedig van ons.</p>
-          <div class="col-sm-12 form-group">
-            <button ng-click="goBack()" type="submit" class="btn btn-default btn-ing">Nog een lening aanvragen</button>
-            <button wz-next type="submit" class="btn btn-default btn-ing">Afsluiten</button>
-          </div>
-          </wz-step>
-          </wizard>
-        </section>
-      </div>
-      </div> <!-- /container -->
-      <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      <!--[if lt IE 9]>
-      <script src="bower_components/es5-shim/es5-shim.min.js"></script>
-      <script src="bower_components/json3/lib/json3.min.js"></script>
-      <![endif]-->
-      <!-- build:js scripts/vendor.js -->
-      <!-- bower:js -->
-      <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/es5-shim/es5-shim.js"></script>
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-      <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-route/angular-route.js"></script>
-      <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-      <script src="bower_components/angular-wizard/dist/angular-wizard.js"></script>
-      <!-- endbower -->
-      <!-- endbuild -->
-      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!--/.nav-collapse -->
+    </div>
+</div>
+<div class="container">
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>Loans Origination</h1>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div>
+        <section id="main_content" class="inner main-inner" ng-app="pegaWizardApp" ng-controller="WizardCtrl">
+            <wizard on-finish="finished()" template="wizardTemplate.html">
+                <wz-step title="1. Persoonlijke gegevens">
+                    <h1>Persoonlijke gegevens</h1>
 
-      <script src="scripts/controllers/main.js"></script>
-      <!-- endbuild -->
-    </body>
-  </html>
+                    <form role="form">
+                        <div class="col-sm-6 form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" ng-model="user.name" class="form-control" id="name" value="A. van Dijk">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="address">Adres</label>
+                            <input type="text" ng-model="user.address" class="form-control" id="address"
+                                   value="Tolsteegsingel 44, 3512AK, Utrecht">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="dateofbirth">Geboortedatum</label>
+                            <input type="date" ng-model="user.dateofbirth" class="form-control" id="dateofbirth">
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            <button wz-next type="submit" class="btn btn-default btn-ing">Volgende</button>
+                        </div>
+                    </form>
+                </wz-step>
+                <wz-step title="2. Uw situatie">
+                    <h1>Uw situatie</h1>
+
+                    <form role="form">
+                        <div class="col-sm-6 form-group">
+                            <label for="maritalstatus">Huwelijkse staat</label>
+                            <select class="form-control" ng-model="user.maritalstatus" id="maritalstatus">
+                                <option value="alleenstaand">Alleenstaand</option>
+                                <option value="gescheiden">Gescheiden</option>
+                                <option value="scheiding">In scheiding</option>
+                                <option value="gemeenschapgoederen">Getrouwd / Partnerregistratie in gemeenschap van
+                                    goederen
+                                </option>
+                                <option value="huwelijksevoorwaarden">Getrouwd / Partnerregistratie onder (huwelijkse)
+                                    voorwaarden
+                                </option>
+                                <option value="metsamenlevingscontract">Samenwonend met samenlevingscontract</option>
+                                <option value="zondersamenlevingscontract">Samenwonend zonder samenlevingscontract
+                                </option>
+                                <option value="weduwe">Weduwe / weduwnaar</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="housingstatus">Woonsituatie</label>
+                            <select class="form-control" ng-model="user.housingstatus" id="housingstatus">
+                                <option value="bought">Ik ben huiseigenaar</option>
+                                <option value="rented">Ik huur een woning</option>
+                                <option value="libingin">Ik ben inwonend / thuiswonend</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="numberofchildren">Voor hoeveel kinderen bent u financieel
+                                verantwoordelijk?</label>
+                            <input type="number" ng-model="user.numberofchildren" class="form-control"
+                                   id="numberofchildren" placeholder="0">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="monthlyincome">Netto maandinkomen (&euro;)</label>
+                            <input type="number" ng-model="user.monthlyincome" class="form-control" id="monthlyincome"
+                                   placeholder="1700">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="requestedloanamount">Hoeveel wilt u lenen? (&euro;)</label>
+                            <input type="number" class="form-control" id="requestedloanamount" placeholder="1000">
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            <button wz-previous type="submit" class="btn btn-default btn-ing">Terug</button>
+                            <button type="submit" ng-click="getOptions()" class="btn btn-default btn-ing">
+                                Volgende
+                            </button>
+                        </div>
+                    </form>
+                </wz-step>
+                <wz-step title="2. Uw lening">
+                    <h1>Uw lening</h1>
+
+                    <p>Wij kunnen u de volgende lening(en) aanbieden:</p>
+
+                    <div class="form-group">
+                        <select size="3" class="form-control" ng-model="user.selectedloan"
+                                ng-options="customer.CustomerID as customer.CompanyName for customer in loans"></select>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <button wz-previous type="submit" class="btn btn-default btn-ing">Terug</button>
+                        <button wz-next type="submit" class="btn btn-default btn-ing">Bevestigen</button>
+                    </div>
+                </wz-step>
+                <wz-step title="3. Voltooid">
+                    <h1>Voltooid</h1>
+
+                    <p>Uw aanvraag voor een {{user.selectedloan}} lening is in behandeling. U hoort spoedig van ons.</p>
+
+                    <div class="col-sm-12 form-group">
+                        <button ng-click="goBack()" type="submit" class="btn btn-default btn-ing">Nog een lening
+                            aanvragen
+                        </button>
+                        <button wz-next type="submit" class="btn btn-default btn-ing">Afsluiten</button>
+                    </div>
+                </wz-step>
+            </wizard>
+        </section>
+    </div>
+</div>
+<!-- /container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.min.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/angular-wizard/dist/angular-wizard.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+<script src="scripts/controllers/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>
